@@ -8,10 +8,6 @@
     margin-top: 50px;
 }
 
-.jj .numberOfJokess {
-    width: max-content
-}
-
 @media only screen and (max-width: 600px) {
     .nav-wrapper a {
         width: max-content;

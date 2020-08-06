@@ -3,64 +3,59 @@ var btn = document.getElementById("getLocation");
 btn.addEventListener('click', displayLocation);
 
 function displayLocation() {
-    fetch('https://api.ipify.org/?format=json')
-        .then(response => {
-            // console.log(response);
-            return response.json();
-        })
-        .then(data => {
-            console.log(data.ip);
-            getCountry(data.ip);
-        })
-        .catch(err => console.log(err));
-
-}
-
-
-
-
-
-function getCountry(ip) {
-    console.log(ip);
-    fetch(`https://ip-api.com/json/${ip}`)
+    fetch('https://ipapi.co/json')
         .then(function(response) {
             console.log(response);
             return response.json();
         })
         .then(function(data) {
-            console.log(data);
-            return data;
+            console.log(data)
+            let parentDiv = document.getElementById("getContent");
+            parentDiv.innerHTML = `
+             <ul class="col m6 offset-m3  s12 collection center">
+                    <li class="collection-item">Continent name is <span class="cyan-text">${data.continent_code}</span></li>
+                    <li class="collection-item">Country name is <span class="cyan-text">${data.country_name}</span></li>
+                    <li class="collection-item">Country capital is <span class="cyan-text">${data.country_capital}</span></li>
+                    <li class="collection-item">Population is <span class="cyan-text">${populationToMillion(data.country_population)}</span></li>
+                    <li class="collection-item">Region is <span class="cyan-text">${data.region}</span></li>
+                    <li class="collection-item">Region code is <span class="cyan-text">${data.region_code}</span></li>
+                    <li class="collection-item">Currency is <span class="cyan-text">${data.currency}</span></li>
+                    <li class="collection-item">Currency name is <span class="cyan-text">${data.currency_name}</span></li>
+                    <li class="collection-item">Latitude is <span class="cyan-text">${data.latitude}</span></li>
+                    <li class="collection-item">Longitude is <span class="cyan-text">${data.longitude}</span></li>
+                    <li class="collection-item">Timezone is <span class="cyan-text">${data.timezone}</span></li>
+                    <li class="collection-item">Service provider is <span class="cyan-text">${data.org}</span></li>
+                </ul>
+            `;
         })
         .catch(function(err) {
             console.log(err);
         });
 }
 
+function populationToMillion(population) {
 
+    if (isNaN(population)) return population;
 
+    if (population < 9999) {
+        return population;
+    }
 
-// fetch(`https://api.icndb.com/jokes/random/${num.value}`)
-//         .then(function(response) {
-//             return response.json();
-//         })
-//         .then(function(data) {
-//             console.log(data);
-//             let output = '';
-//             let ul = document.createElement('ul');
-//             ul.className = "collection with-header";
-//             jokes.appendChild(ul);
-//             console.log(ul);
-//             let sno = 1;
-//             data.value.forEach(function(data) {
-//                 let li = document.createElement("li");
-//                 li.className = "collection-item";
-//                 li.innerHTML = `${sno++}. ${data.joke}`;
-//                 ul.appendChild(li);
-//                 console.log(ul);
-//             });
-//             num.value = ''
-//         })
-//         .catch(function(err) {
-//             console.log("Error: something went wrong")
-//         });
-// }
+    if (population < 1000000) {
+        return Math.round(population / 1000) + "K";
+    }
+    if (population < 10000000) {
+        return (population / 1000000).toFixed(2) + "M";
+    }
+
+    if (population < 1000000000) {
+        return Math.round((population / 1000000)) + "M";
+    }
+
+    if (population < 1000000000000) {
+        return Math.round((population / 1000000000)) + "B";
+    }
+
+    return "1T+";
+
+}
