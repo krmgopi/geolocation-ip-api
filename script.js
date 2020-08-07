@@ -13,18 +13,18 @@ function displayLocation() {
             let parentDiv = document.getElementById("getContent");
             parentDiv.innerHTML = `
              <ul class="col m6 offset-m3  s12 collection center">
-                    <li class="collection-item">Continent name is <span class="cyan-text">${data.continent_code}</span></li>
-                    <li class="collection-item">Country name is <span class="cyan-text">${data.country_name}</span></li>
-                    <li class="collection-item">Country capital is <span class="cyan-text">${data.country_capital}</span></li>
-                    <li class="collection-item">Population is <span class="cyan-text">${populationToMillion(data.country_population)}</span></li>
-                    <li class="collection-item">Region is <span class="cyan-text">${data.region}</span></li>
-                    <li class="collection-item">Region code is <span class="cyan-text">${data.region_code}</span></li>
-                    <li class="collection-item">Currency is <span class="cyan-text">${data.currency}</span></li>
-                    <li class="collection-item">Currency name is <span class="cyan-text">${data.currency_name}</span></li>
-                    <li class="collection-item">Latitude is <span class="cyan-text">${data.latitude}</span></li>
-                    <li class="collection-item">Longitude is <span class="cyan-text">${data.longitude}</span></li>
-                    <li class="collection-item">Timezone is <span class="cyan-text">${data.timezone}</span></li>
-                    <li class="collection-item">Service provider is <span class="cyan-text">${data.org}</span></li>
+                    <li class="collection-item">Continent name is <span class="green-text">${data.continent_code}</span></li>
+                    <li class="collection-item">Country name is <span class="green-text">${data.country_name}</span></li>
+                    <li class="collection-item">Country capital is <span class="green-text">${data.country_capital}</span></li>
+                    <li class="collection-item">Population is <span class="green-text">${populationToMillion(data.country_population)}</span></li>
+                    <li class="collection-item">Region is <span class="green-text">${data.region}</span></li>
+                    <li class="collection-item">Region code is <span class="green-text">${data.region_code}</span></li>
+                    <li class="collection-item">Currency is <span class="green-text">${data.currency}</span></li>
+                    <li class="collection-item">Currency name is <span class="green-text">${data.currency_name}</span></li>
+                    <li class="collection-item">Latitude is <span class="green-text">${data.latitude}</span></li>
+                    <li class="collection-item">Longitude is <span class="green-text">${data.longitude}</span></li>
+                    <li class="collection-item">Timezone is <span class="green-text">${data.timezone}</span></li>
+                    <li class="collection-item">Service provider is <span class="green-text">${data.org}</span></li>
                 </ul>
             `;
         })

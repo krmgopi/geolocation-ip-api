@@ -2,10 +2,16 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Changa', sans-serif;
 }
 
 #content {
     margin-top: 50px;
+    height: 800px;
+}
+
+.social a {
+    margin: 0 30px 0 20px;
 }
 
 @media only screen and (max-width: 600px) {
